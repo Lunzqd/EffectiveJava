@@ -46,3 +46,19 @@
     
  • **type**—A concise alternative to getType and newType, for example:
     List<Complaint> litany = Collections.list(legacyLitany);
+ 
+ 
+ **Item 2: Consider a builder when faced with many constructor
+ parameters**
+ 
+ 考虑使用Builder来构建多构造参数的对象
+ 
+ **优点**
+ 1：可以强制输入保证对象运行所必须的参数
+ 2：只有输入完参数且完成校验后才能够生成对象，保证高效
+ 
+ **不足**
+ 1：不能用在Java Bean中
+ 
+ **实现方式：**
+ 在主类中构建一个内部类- Builder，用户通过向该Builder传递参数而构建一个主类的对象
