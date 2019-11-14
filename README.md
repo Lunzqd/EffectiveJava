@@ -63,6 +63,7 @@
  **实现方式：**
  在主类中构建一个内部类- Builder，用户通过向该Builder传递参数而构建一个主类的对象
  
+ 
  **Section2 对象通用方法**
  
  **Item10: Obey the general contract when overriding equals**
@@ -82,3 +83,5 @@
  **5：Null判断：** x.equals(null) must return false
  
  **6：No Exception：** x.equals(y) should not throw exception
+ 
+ 切记，每次写完一个equals方法，都要反思一下是否满足以上条件，都要写测试用例！不要自作聪明！
