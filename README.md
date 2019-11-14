@@ -62,3 +62,23 @@
  
  **实现方式：**
  在主类中构建一个内部类- Builder，用户通过向该Builder传递参数而构建一个主类的对象
+ 
+ **Section2 对象通用方法**
+ 
+ **Item10: Obey the general contract when overriding equals**
+ 
+ **用途：** 当用户有特殊需求，即对象之间的比较不通过传统的reference，而是通过具体的属性来比较
+ 
+ **需要遵循的特性：**
+ 
+ **1：自反性：** x.equals(x) must return true
+ 
+ **2：对称性：** x.equals(y) must return true if and only if y.equals(x) returns true.
+ 
+ **3：传递性：** if x.equals(y) returns true and y.equals(z) returns true, then x.equals(z) must return true.
+ 
+ **4：一致性：** x.equals(y) must consistently return true or consistently return false
+ 
+ **5：Null判断：** x.equals(null) must return false
+ 
+ **6：No Exception：** x.equals(y) should not throw exception
