@@ -80,10 +80,10 @@ public class DtoArea implements Comparable{
 
         DtoArea dtoArea=(DtoArea) o;
 
-        Long currentArea=dtoArea.getArea();
-        Long comparArea=this.getArea();
+        Long currentArea=this.getArea();
+        Long compareArea=dtoArea.getArea();
 
-        return Long.compare(currentArea,comparArea);
+        return Long.compare(currentArea,compareArea);
 
     }
 }

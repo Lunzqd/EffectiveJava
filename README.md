@@ -113,7 +113,7 @@
  
  **2：对称性：** x.compare(y) == -y.compare(x)
  
- **3：传递性：** if x.compare(y) returns >0 and y.equals(z) returns >0, then x.equals(z) must return >0.
+ **3：传递性：** if x.compare(y) returns >0 and y.equals(z) returns >0, then x.equals(z) must return >0.???
  
  **4：一致性：** x.compare(y) must consistently return true or consistently return false
  
