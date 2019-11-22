@@ -64,6 +64,7 @@
  在主类中构建一个内部类- Builder，用户通过向该Builder传递参数而构建一个主类的对象
  
  
+ 
  **Section2 对象通用方法**
  
  **Item10: Obey the general contract when overriding equals**
@@ -85,3 +86,40 @@
  **6：No Exception：** x.equals(y) should not throw exception
  
  切记，每次写完一个equals方法，都要反思一下是否满足以上条件，都要写测试用例！不要自作聪明！
+ 
+  **Item11: Always override hashCode when you override equals**
+  
+  **说明：** hashcode是一个重要的对象属性，与equals有着千丝万缕的联系，尤其是要将该对象存储到数组中时，hashcode在其中扮演着
+  极其重要的角色。譬如，当用户需要存储对象到hashset或hashmap中的时候，系统会首先判断用户的hashcode，如果一致，那么系统会
+  去调用equals方法，如果一致，则不允许存储
+  
+  所以，是否重写hashcode需要看系统对该对象的需求，如果仅仅用来比较大小，但是就是认为这是两个对象，那么可以不重写hashcode，否则
+  就应该重写hashcode，尤其是要将对象存储到数组中，而且对数组有排列或去重的要求时
+  
+   
+ **Item12: Always override toString**
+  
+  **说明：** 建议Pojo对象全部重写toString方法，在该方法中只需要返回Json就可以。因为，为了能够正常运维，系统一定需要记录相关的
+  操作日志，这些日志中需要将必须的传递值携带上，此时，在我们记录日志时，我们可能会写String.format("value:%s",obj)，此时，系统
+  就会调用该方法的toString()方法
+  
+ **Item14: Consider implementing Comparable**
+    
+**说明：** 如果对象需要有比较大小的需求，或者对象需要存储到数组中并且根据大小排序，那么一定要实现Comparable接口
+
+**需要遵循的特性：**
+ 
+ **1：自反性：** x.compare(x) must return 0
+ 
+ **2：对称性：** x.compare(y) == -y.compare(x)
+ 
+ **3：传递性：** if x.compare(y) returns >0 and y.equals(z) returns >0, then x.equals(z) must return >0.???
+ 
+ **4：一致性：** x.compare(y) must consistently return true or consistently return false
+ 
+ **5：Null判断：** x.compare(null) must return >0, 但是用户应该在初始化对象时就规避这种问题，即比较因子应该在创建对象时
+ 进行必填校验
+ 
+ **6：Have Exception：** x.compare(y) allows to throw exception
+ 
+ **6：equals：** if x.compare(y)==0 then x.equals(y)==true
