@@ -17,10 +17,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -157,4 +154,46 @@ public class Item14Tests {
     }
 
 
+    @Test
+    public void validTest6(){
+
+        DtoArea1 dtoArea1=new DtoArea1(1,2);
+        DtoArea1 dtoArea2=new DtoArea1(1,2);
+
+        HashSet<DtoArea1> lstArea=new HashSet<>();
+        lstArea.add(dtoArea1);
+        lstArea.add(dtoArea2);
+
+        Assert.assertTrue(lstArea.contains(dtoArea1));
+        Assert.assertTrue(lstArea.contains(dtoArea2));
+    }
+
+    @Test
+    public void validTest7(){
+
+        DtoArea1 dtoArea1=new DtoArea1(1,2);
+        DtoArea1 dtoArea2=new DtoArea1(1,3);
+
+        HashSet<DtoArea1> lstArea=new HashSet<>();
+        lstArea.add(dtoArea1);
+        lstArea.add(dtoArea2);
+
+        Assert.assertTrue(lstArea.contains(dtoArea1));
+        Assert.assertTrue(lstArea.contains(dtoArea2));
+    }
+
+    @Test
+    public void validTest8(){
+
+        DtoArea1 dtoArea1=new DtoArea1(1,2);
+        DtoArea1 dtoArea2=new DtoArea1(1,2);
+
+        HashMap<DtoArea1,Object> lstArea=new HashMap<>();
+        lstArea.put(dtoArea1,dtoArea1);
+        lstArea.put(dtoArea2,dtoArea2);
+
+        DtoArea1 currentArea=(DtoArea1) lstArea.get(dtoArea1);
+        Assert.assertTrue(lstArea.containsValue(dtoArea1));
+        Assert.assertTrue(lstArea.containsValue(dtoArea2));
+    }
 }

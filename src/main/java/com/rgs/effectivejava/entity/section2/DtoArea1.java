@@ -33,9 +33,37 @@ public class DtoArea1 implements Comparable<DtoArea1> {
         if(o==null){
             throw new NullPointerException("The comparing object is null");
         }
-        Long currentArea=o.getArea();
-        Long compareArea=this.getArea();
+        Long currentArea=this.getArea();
+        Long compareArea=o.getArea();
 
         return Long.compare(currentArea,compareArea);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+
+        if(obj==null){
+            return false;
+        }
+        if(obj.getClass()!=this.getClass()){
+            return false;
+        }
+        DtoArea1 dtoArea=(DtoArea1) obj;
+
+        Long currentArea=this.getArea();
+        Long compareArea=dtoArea.getArea();
+
+        return currentArea.equals(compareArea);
+        //return true;
+    }
+
+    @Override
+    public int hashCode() {
+
+        Integer result=31;
+        result=result+this.getArea().hashCode();
+        //return result;
+        return 31;
     }
 }
