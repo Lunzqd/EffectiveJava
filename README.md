@@ -1,6 +1,6 @@
 # EffectiveJava
 
-**Section 1：对象的创建及销毁**
+#### Section 1：对象的创建及销毁
 
 **Item 1: Consider static factory methods instead of constructors**
  
@@ -65,7 +65,7 @@
  
  
  
- **Section2 对象通用方法**
+ #### Section2 对象通用方法
  
  **Item10: Obey the general contract when overriding equals**
  
@@ -123,3 +123,41 @@
  **6：Have Exception：** x.compare(y) allows to throw exception
  
  **6：equals：** if x.compare(y)==0 then x.equals(y)==true
+ 
+#### Section3 类和接口
+
+**Item 15: Minimize the accessibility of classes and members**
+
+除非必须访问，否则不要允许类和其中的成员能够被访问
+
+**Item 16: In public classes, use accessor methods, not public fields**
+
+绝对不能让类中的字段暴露在外，所有的属性必须定义为private，如果允许其访问，那么请使用lombok！！！
+有些属性可能只需要提供getter方法，但是如果你把该字段定义为public，那么用户还可以set
+
+**Item 17: Minimize mutability**
+
+尽量减少对象的可变性，对于对象来说我们需要尽量遵循以下规则：
+
+**1：不要提供提供能够改变对象状态的方法**
+
+**2：对象尽量不允许被扩展**：除非有必要，否则对象不能允许被继承
+
+**Item 18: Favor composition over inheritance**
+
+**Item 19: Design and document for inheritance or else prohibit it**
+
+**Item 20: Prefer interfaces to abstract classes**
+
+**Item 21: Design interfaces for posterity**
+
+**1：不要使用继承（extend），使用实现（implement）**
+
+**2：不要使用抽象类（abstract class），使用接口（interface）**
+
+**3：如果必须要给用户保留能够继承的类，那么把内部细节描述的足够清楚！！！**
+
+之所以不推荐使用继承，原因就是因为父类封装了自有逻辑业务，而你不清楚，如果贸然使用，可能会带来意外的惊喜！！
+
+
+
